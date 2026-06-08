@@ -13,6 +13,7 @@ versions = [
         "title": "Cloud Migration",
         "content": {
             "title": "Cloud Migration",
+            "description": "This document outlines the comprehensive strategy and technical requirements for migrating our legacy monolith application to a modern, scalable cloud-native architecture. The primary objectives include improving system reliability to meet our 99.99% uptime SLA, enhancing security through end-to-end encryption, and ensuring full compliance with GDPR regulations. The architecture will leverage containerization via Docker and orchestration through Kubernetes, allowing for horizontal auto-scaling during peak loads. We will also implement a robust CI/CD pipeline to automate testing and deployment processes. This migration is critical for our long-term business goals and requires careful coordination among all engineering teams to minimize downtime.",
             "status": "draft",
             "priority": "medium",
             "requirements": ["OAuth 2.0", "99.99% uptime"],
@@ -25,6 +26,7 @@ versions = [
         "title": "Cloud Migration",
         "content": {
             "title": "Cloud Migration",
+            "description": "This document outlines the comprehensive strategy and technical requirements for migrating our legacy monolith application to a modern, scalable cloud-native architecture. The primary objectives include improving system reliability to meet our 99.99% uptime SLA, enhancing security through end-to-end encryption, and ensuring full compliance with GDPR regulations. The architecture will leverage containerization via Docker and orchestration through Kubernetes, allowing for horizontal auto-scaling during peak loads. We will also implement a robust CI/CD pipeline to automate testing and deployment processes. This migration is critical for our long-term business goals and requires careful coordination among all engineering teams to minimize downtime.",
             "status": "in_review",
             "priority": "medium",
             "requirements": ["OAuth 2.0", "99.99% uptime", "E2E encryption"],
@@ -37,6 +39,7 @@ versions = [
         "title": "Cloud Migration",
         "content": {
             "title": "Cloud Migration",
+            "description": "This document outlines the comprehensive strategy and technical requirements for migrating our legacy monolith application to a modern, scalable cloud-native architecture. The primary objectives include improving system reliability to meet our 99.99% uptime SLA, enhancing security through end-to-end encryption, and ensuring full compliance with GDPR regulations. The architecture will leverage containerization via Docker and orchestration through Kubernetes, allowing for horizontal auto-scaling during peak loads. We will also implement a robust CI/CD pipeline to automate testing and deployment processes. This migration is critical for our long-term business goals and requires careful coordination among all engineering teams to minimize downtime.",
             "status": "approved",
             "priority": "high",
             "requirements": ["OAuth 2.0", "99.99% uptime", "E2E encryption", "GDPR compliance"],
@@ -49,6 +52,7 @@ versions = [
         "title": "Cloud Migration v2",
         "content": {
             "title": "Cloud Migration v2",
+            "description": "This document outlines the comprehensive strategy and technical requirements for migrating our legacy monolith application to a modern, scalable cloud-native architecture. The primary objectives include improving system reliability to meet our 99.99% uptime SLA, enhancing security through end-to-end encryption, and ensuring full compliance with GDPR regulations. The architecture will leverage containerization via Docker and orchestration through Kubernetes, allowing for horizontal auto-scaling during peak loads. We will also implement a robust CI/CD pipeline to automate testing and deployment processes. This migration is critical for our long-term business goals and requires careful coordination among all engineering teams to minimize downtime.",
             "status": "in_progress",
             "priority": "high",
             "requirements": ["OAuth 2.0", "99.99% uptime", "E2E encryption", "GDPR compliance", "Rate limiting"],
@@ -61,6 +65,7 @@ versions = [
         "title": "Cloud Migration v2",
         "content": {
             "title": "Cloud Migration v2",
+            "description": "This document outlines the comprehensive strategy and technical requirements for migrating our legacy monolith application to a modern, scalable cloud-native architecture. The primary objectives include improving system reliability to meet our 99.99% uptime SLA, enhancing security through end-to-end encryption, and ensuring full compliance with GDPR regulations. The architecture will leverage containerization via Docker and orchestration through Kubernetes, allowing for horizontal auto-scaling during peak loads. We will also implement a robust CI/CD pipeline to automate testing and deployment processes. This migration is critical for our long-term business goals and requires careful coordination among all engineering teams to minimize downtime.",
             "status": "deployed",
             "priority": "critical",
             "requirements": ["OAuth 2.0", "99.99% uptime", "E2E encryption", "GDPR compliance", "Rate limiting", "Monitoring"],
@@ -69,12 +74,14 @@ versions = [
     },
 ]
 
+doc_id = "doc_001"
+
 print("\n" + "=" * 60)
-print("  DEMO WRITE — 5 versions cua document demo_001")
+print(f"  DEMO WRITE — 5 versions cua document {doc_id}")
 print("=" * 60)
 
 for i, v in enumerate(versions, 1):
-    r = requests.post(f"{BASE}/document/demo_001", json=v, timeout=10)
+    r = requests.post(f"{BASE}/document/{doc_id}", json=v, timeout=10)
     d = r.json()
     print(f"\n  Version {i}: {v['content']['status']}")
     print(f"    Snapshot size: {d['snapshot_size']} bytes")
@@ -89,4 +96,4 @@ for i, v in enumerate(versions, 1):
     time.sleep(0.5)
 
 print(f"\n  Done! Mo Dashboard tai: http://localhost:5001/dashboard")
-print(f"  Chon document 'demo_001' de xem lich su + time-travel.\n")
+print(f"  Chon document '{doc_id}' de xem lich su + time-travel.\n")

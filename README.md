@@ -159,14 +159,14 @@ Dashboard được tích hợp sẵn trong Flask server, cung cấp:
 
 ## 6. Kết quả thực nghiệm
 
-Benchmark trên tập dữ liệu 50 tài liệu, tổng cộng 3241 phiên bản:
+Benchmark trên tập dữ liệu 50 tài liệu, tổng cộng 1000 phiên bản:
 
 | Chỉ số | Full Snapshot | Delta Encoding | Nhận xét |
 |:---|:---|:---|:---|
-| **Dung lượng lưu trữ** | 1351.76 KB | 814.83 KB | Delta tiết kiệm **39.7%** |
-| **Độ trễ ghi** | 22.92 ms | 14.25 ms | Delta nhanh hơn **37.8%** |
-| **Độ trễ Time-Travel** | **6.26 ms** | 29.31 ms | Snapshot nhanh gấp **~4.7 lần** |
-| **Cơ chế tái tạo** | O(1) Lookup | O(N) Replay | Delta phải áp dụng TB 42.8 patches |
+| **Dung lượng lưu trữ** | 416.97 KB | 139.60 KB | Delta tiết kiệm **66.5%** |
+| **Độ trễ ghi** | 7.91 ms | 10.07 ms | Snapshot nhanh hơn |
+| **Độ trễ Time-Travel** | **2.60 ms** | 29.58 ms | Snapshot nhanh gấp **~11.4 lần** |
+| **Cơ chế tái tạo** | O(1) Lookup | O(N) Replay | Delta phải áp dụng TB 9.4 patches |
 
 ---
 
