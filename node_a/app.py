@@ -22,6 +22,13 @@ SYNC_TIMEOUT = 3
 app = Flask(__name__)
 app.json.ensure_ascii = False
 
+@app.after_request
+def add_cors(resp):
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    resp.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    resp.headers['Access-Control-Allow-Methods'] = 'GET,POST,OPTIONS'
+    return resp
+
 snap_store  = FullSnapshotStorage(db_path=DB_SNAP, data_dir=DATA_DIR)
 delta_store = DeltaStorage(db_path=DB_DELTA, data_dir=DATA_DIR)
 

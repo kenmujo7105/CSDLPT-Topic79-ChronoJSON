@@ -54,6 +54,8 @@ project79/
 │   └── storage.py          # Storage Engine (bản sao giống node_a)
 ├── client/
 │   └── benchmark.py        # Script đo hiệu năng (benchmark)
+├── dashboard/
+│   └── index.html          # Giao diện web demo trực quan (mở bằng trình duyệt)
 ├── auto_benchmark.py       # Script tự động: khởi động 2 node + chạy benchmark
 ├── generate_dataset.py     # Sinh dữ liệu giả lập (50 tài liệu × 20 phiên bản)
 ├── requirements.txt        # Danh sách thư viện Python cần cài
@@ -125,6 +127,22 @@ curl -X POST http://localhost:5001/document/doc_001 \
 ```bash
 curl "http://localhost:5001/document/doc_001?at=2024-01-15T10:00:00"
 ```
+
+---
+
+### 4.6. Mở giao diện Dashboard Demo
+
+Sau khi 2 node đã chạy (bằng cách chạy `auto_benchmark.py` hoặc khởi động thủ công), mở file sau bằng trình duyệt (Chrome/Edge):
+
+```
+dashboard/index.html
+```
+
+Dashboard cung cấp:
+- **Thống kê trực quan** — Tổng phiên bản, dung lượng Snapshot vs Delta (biểu đồ thanh)
+- **Time-Travel Query** — Chọn tài liệu, chọn thời điểm, nhấn nút → xem kết quả + so sánh tốc độ 2 chiến lược
+- **Lịch sử phiên bản** — Bảng chi tiết tất cả version của một tài liệu
+- **Trạng thái Node** — Hiển thị xanh/đỏ cho biết node nào đang hoạt động
 
 ---
 
