@@ -1,0 +1,37 @@
+# === Python ===
+__pycache__/
+*.pyc
+*.pyo
+
+# === Dữ liệu sinh tự động (tái tạo bằng generate_dataset.py) ===
+data/full_snapshots.json
+data/delta_edits.json
+
+# === Database runtime (sinh khi chạy server) ===
+*.db
+*.db-wal
+*.db-shm
+
+# === Dữ liệu phiên bản runtime (sinh khi chạy benchmark) ===
+node_a/data/snapshots/
+node_a/data/deltas/
+node_b/data/snapshots/
+node_b/data/deltas/
+
+# === Log server ===
+*.log
+
+# === Kết quả benchmark (sinh khi chạy auto_benchmark.py) ===
+benchmark_output*.txt
+final_benchmark_output.txt
+benchmark_results.json
+client/benchmark_results.json
+
+# === File tạm của Word/Office ===
+~$*
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
